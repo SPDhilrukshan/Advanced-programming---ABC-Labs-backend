@@ -1,0 +1,52 @@
+
+spring:
+  h2.console.enabled: true
+  application:
+      name: JAVA-ABC-LABS-SERVICE
+
+  jpa:
+    database: POSTGRESQL
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ICBT-ABC-LABS?autoReconnect=true
+    username: postgres
+    password: Veno.Dhil
+#          tomcat:
+#            max-active: 12
+#            max-idle: 8
+#            max-wait: 3000
+#            test-on-borrow: true
+#            validation-query: SELECT 1
+    properties:
+      hibernate:
+        default_schema: ICBT-ABC-LABS
+        format_sql: true
+        temp:
+          use_jdbc_metadata_defaults: false
+  jackson:
+    default-property-inclusion: NON_NULL
+    date-format: yyyy-MM-dd HH:mm:ss
+orm:
+  configuration: spring
+  http:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+eureka:
+  instance:
+    statusPageUrlPath: /swagger-ui.html
+  client:
+    serviceUrl:
+      defaultZone: http://172.15.100.153:8761/eureka/
+    fetch-registry: false
+    healthcheck:
+      enabled: false
+server:
+  port: 9091
+variable:
+  new:
+    xyz: ABC-spring
